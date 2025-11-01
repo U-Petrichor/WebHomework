@@ -484,6 +484,7 @@ fieldset.form-group label {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
 }
 
 .gallery-item a { display: block; }
@@ -498,8 +499,43 @@ fieldset.form-group label {
 }
 
 .gallery-item figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 0.6rem 0.75rem;
-  color: #333;
+  color: #fff;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05));
+  pointer-events: none; /* 不阻挡点击图片链接 */
+  max-height: 56px; /* 初始仅显示标题与地点 */
+  overflow: hidden;
+  transition: max-height var(--transition-fast), opacity var(--transition-fast);
+}
+
+.gallery-item:hover figcaption {
+  max-height: 240px; /* 悬停时展示更多文字 */
+}
+
+.gallery-item figcaption .caption-title {
+  font-weight: 700;
+}
+
+.gallery-item figcaption .caption-meta {
+  display: block;
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.gallery-item figcaption .caption-details {
+  margin-top: 0.35rem;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.gallery-item:hover figcaption .caption-details {
+  opacity: 1;
+  transform: none;
 }
 
 .gallery-item:hover {
