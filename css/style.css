@@ -510,11 +510,11 @@ fieldset.form-group label {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 0.6rem 0.75rem;
+  padding: 0.6rem 0.75rem 1rem; /* 增加底部留白 */
   color: #fff;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.05));
   pointer-events: none; /* 不阻挡点击图片链接 */
-  max-height: 56px; /* 初始仅显示标题与地点 */
+  max-height: 72px; /* 初始仅显示标题与地点且与底部留白 */
   overflow: hidden;
   transition: max-height var(--transition-fast), opacity var(--transition-fast);
 }
