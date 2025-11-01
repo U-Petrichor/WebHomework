@@ -1,6 +1,15 @@
 /* Google Fonts (可选美化) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap');
 
+/* 本地字体：Aa游龙行书 */
+@font-face {
+  font-family: 'AaYouLongXingShu';
+  src: url('../font/AaYouLongXingShu-2.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* 1) 全局重置 */
 *,
 *::before,
