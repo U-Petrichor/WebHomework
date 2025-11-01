@@ -100,70 +100,65 @@
         </nav>
       </header>
 
-      <!-- 预算表（作业核心） -->
-      <section id="budget" style="padding: 1rem;">
-        <h2 style="margin: 0 0 0.5rem; font-family: var(--font-title);">10日游预算参考表</h2>
-        <table style="width: 100%; border-collapse: collapse; background: #fff;">
-          <thead>
-            <tr style="background: var(--primary-color); color: #fff;">
-              <th style="padding: 0.75rem; text-align: left;">项目</th>
-              <th style="padding: 0.75rem; text-align: left;">单价</th>
-              <th style="padding: 0.75rem; text-align: left;">数量</th>
-              <th style="padding: 0.75rem; text-align: left;">小计</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">住宿</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 400/晚</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">10</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 4,000</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">餐饮</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 150/日</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">10</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 1,500</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">交通</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 300/日</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">10</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 3,000</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">景点门票</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 100/日</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">10</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 1,000</td>
-            </tr>
-            <tr>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">杂项</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 150/日</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">10</td>
-              <td style="padding: 0.75rem; border-bottom: 1px solid #eee;">¥ 1,500</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td style="padding: 0.75rem;" colspan="3"><strong>合计</strong></td>
-              <td style="padding: 0.75rem;"><strong>¥ 11,000</strong></td>
-            </tr>
-          </tfoot>
-        </table>
+      <!-- 欢迎模块 -->
+      <section id="home-welcome" class="welcome-module">
+        <h2>欢迎来到 XX旅游攻略</h2>
+        <p>
+          这里汇集了各国城市的精选路线、每日行程与旅行灵感。向下浏览即可快速进入攻略总览或直接前往具体国家的行程页面。
+        </p>
+        <ul class="welcome-features">
+          <li>多国家、多城市的标准化行程模板</li>
+          <li>每日必看景点、交通与用餐建议</li>
+          <li>联系与反馈渠道，便于完善内容</li>
+        </ul>
+        <div class="welcome-actions">
+          <a class="btn primary" href="pages/guides-hub.html">浏览攻略路线</a>
+          <a class="btn" href="pages/contact.html">提交意见反馈</a>
+        </div>
       </section>
 
-      <!-- 准备清单（作业核心） -->
-      <section id="checklist" style="padding: 1rem;">
-        <h2 style="margin: 0 0 0.5rem; font-family: var(--font-title);">出行准备清单</h2>
-        <ul style="background: #fff; padding: 0.75rem 1rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm);">
-          <li>护照与签证</li>
-          <li>机票与行程单</li>
-          <li>国际漫游或本地流量卡</li>
-          <li>常用药品与随身急救包</li>
-          <li>备用现金与双币信用卡</li>
-          <li>旅行保险与紧急联系方式</li>
-        </ul>
+      <!-- 景点画廊模块：两列阶梯式布局 -->
+      <section id="home-gallery" class="gallery-grid">
+        <div class="gallery-col">
+          <figure class="gallery-item">
+            <a href="images/greatwall.jpg" target="_blank" rel="noopener">
+              <img src="images/greatwall.jpg" alt="中国·长城" loading="lazy" decoding="async" class="ratio-3x4" />
+            </a>
+            <figcaption>中国 · 长城</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <a href="images/city-beijing.jpg" target="_blank" rel="noopener">
+              <img src="images/city-beijing.jpg" alt="北京城市夜景" loading="lazy" decoding="async" class="ratio-16x9" />
+            </a>
+            <figcaption>北京 · 城市夜景</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <a href="images/japan-kyoto.jpg" target="_blank" rel="noopener">
+              <img src="images/japan-kyoto.jpg" alt="日本京都街景" loading="lazy" decoding="async" class="ratio-1x1" />
+            </a>
+            <figcaption>日本 · 京都</figcaption>
+          </figure>
+        </div>
+        <div class="gallery-col">
+          <figure class="gallery-item">
+            <a href="images/france-paris.jpg" target="_blank" rel="noopener">
+              <img src="images/france-paris.jpg" alt="法国巴黎埃菲尔铁塔" loading="lazy" decoding="async" class="ratio-4x3" />
+            </a>
+            <figcaption>法国 · 巴黎</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <a href="images/japan-tokyo.jpg" target="_blank" rel="noopener">
+              <img src="images/japan-tokyo.jpg" alt="日本东京街头" loading="lazy" decoding="async" class="ratio-3x4" />
+            </a>
+            <figcaption>日本 · 东京</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <a href="images/china-shanghai.jpg" target="_blank" rel="noopener">
+              <img src="images/china-shanghai.jpg" alt="中国上海外滩" loading="lazy" decoding="async" class="ratio-16x9" />
+            </a>
+            <figcaption>中国 · 上海外滩</figcaption>
+          </figure>
+        </div>
       </section>
 
       <!-- 页脚（共享样式） -->
