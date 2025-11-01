@@ -1,0 +1,329 @@
+/* Google Fonts (可选美化) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+KuaiLe&display=swap');
+
+/* 1) 全局重置 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3) CSS 变量：调色板与常用变量 */
+:root {
+  --primary-color: #3498db; /* 主色调 */
+  --dark-color: #333;       /* 深色 */
+  --light-color: #f4f4f4;   /* 浅色背景 */
+
+  --font-main: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  --font-title: 'ZCOOL KuaiLe', cursive;
+
+  --radius-md: 12px;
+  --transition-fast: 200ms ease;
+  --shadow-sm: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* 4) 全局 body 样式 */
+body {
+  font-family: var(--font-main);
+  background-color: var(--light-color);
+  color: #222;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* 5) 共享的导航栏样式（header & nav） */
+header,
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background-color: var(--dark-color);
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header a,
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity var(--transition-fast);
+}
+
+header a:hover,
+nav a:hover {
+  opacity: 0.85;
+}
+
+/* 6) 攻略卡片（Guides Hub 核心组件） */
+.guide-card {
+  position: relative;
+  height: 300px;
+  border-radius: var(--radius-md);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: flex-end; /* 标题显示在底部 */
+  justify-content: flex-start;
+
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    filter var(--transition-fast);
+}
+
+.guide-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0)
+  );
+  pointer-events: none;
+}
+
+.guide-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  width: 100%;
+
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* 7) 卡片交互动画 */
+.guide-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-lg);
+  filter: saturate(1.05);
+}
+
+/* 8) 投稿卡片（特殊样式） */
+.guide-card.contribute-card {
+  border: 2px dashed var(--primary-color);
+  background-color: rgba(255, 255, 255, 0.9);
+  background-image: none;
+}
+
+.guide-card.contribute-card::after {
+  content: none; /* 移除底部渐变，提高浅色可读性 */
+}
+
+.guide-card.contribute-card h3 {
+  color: var(--dark-color);
+  text-shadow: none;
+}
+
+.guide-card.contribute-card:hover {
+  transform: scale(1.03);
+  box-shadow: var(--shadow-sm);
+}
+
+/* 9) 页脚样式 */
+footer {
+  background-color: var(--dark-color);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* ---- Hub 页面布局：卡片网格/Flex ---- */
+.hub-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.cards-grid a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cards-grid a:focus-visible .guide-card {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 4px;
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.03);
+}
+
+/* ---- Itinerary 页面：内容容器与日块美化 ---- */
+.itinerary-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.itinerary-content h1 {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  margin: 0 0 1rem;
+}
+
+.day-block {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1rem;
+}
+
+.day-block h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.day-block p {
+  margin: 0 0 0.5rem;
+  color: #444;
+}
+
+.day-block ol {
+  margin: 0 0 0.5rem 1rem;
+  padding-left: 1rem;
+}
+
+.day-block a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.day-block .day-media img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+@media (max-width: 768px) {
+  .day-block {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Contact 页面：布局与表单美化 ---- */
+.contact-page-layout {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.contact-page-layout .card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-page-layout h2 {
+  font-family: var(--font-title);
+  margin: 0 0 0.75rem;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.form-group label,
+fieldset.form-group legend {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.form-group input[type='text'],
+.form-group input[type='email'],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-md);
+  background: #fff;
+  font-family: var(--font-main);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+fieldset.form-group {
+  border: 1px solid #eee;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+}
+
+fieldset.form-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 1rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.form-actions button[type='submit'] {
+  appearance: none;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-actions button[type='submit']:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+  box-shadow: var(--shadow-sm);
+}

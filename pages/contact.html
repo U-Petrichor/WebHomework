@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>XX旅游攻略 - 反馈与信息</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <!-- 共享导航栏 -->
+    <header>
+      <div class="logo">
+        <a href="../index.html" title="返回首页">XX旅游攻略</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">首页</a></li>
+          <li><a href="guides-hub.html">攻略路线</a></li>
+          <li><a href="contact.html">反馈</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- 主容器：联系与反馈 -->
+    <main class="contact-page-layout">
+      <!-- 关于作者 -->
+      <section id="about-us" class="card">
+        <h2>关于作者</h2>
+        <p>
+          我们热爱旅行与分享，致力于为多国旅行者提供清晰、实用、富有文化深度的攻略内容。
+          若内容对你有帮助，欢迎反馈或投稿丰富路线。
+        </p>
+        <ul>
+          <li>作者：XX 团队</li>
+          <li>致谢：开源地图与社区贡献者</li>
+          <li>版权与使用：自由学习与非商业引用</li>
+        </ul>
+      </section>
+
+      <!-- 反馈与投稿表单 -->
+      <section id="feedback-form" class="card">
+        <h2>攻略反馈与投稿</h2>
+        <form action="#" method="post" class="contact-form">
+          <div class="form-group">
+            <label for="name">姓名</label>
+            <input type="text" id="name" name="name" placeholder="请输入您的姓名" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">邮箱</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="topic">攻略主题</label>
+            <select id="topic" name="topic" required>
+              <option value="" disabled selected>请选择一个主题</option>
+              <option value="china">中国</option>
+              <option value="japan">日本</option>
+              <option value="france">法国</option>
+              <option value="other">其他</option>
+            </select>
+          </div>
+
+          <fieldset class="form-group">
+            <legend>反馈类型</legend>
+            <label><input type="radio" name="type" value="bug" required /> 错误/问题</label>
+            <label><input type="radio" name="type" value="suggestion" /> 改进建议</label>
+            <label><input type="radio" name="type" value="contribution" /> 投稿新攻略</label>
+          </fieldset>
+
+          <div class="form-group">
+            <label for="message">具体建议</label>
+            <textarea id="message" name="message" rows="6" placeholder="请描述您的建议或投稿内容"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">提交反馈</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- 页脚（共享样式） -->
+    <footer>
+      © 2025 XX旅游攻略
+    </footer>
+  </body>
+</html>
