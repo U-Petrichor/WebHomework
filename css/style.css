@@ -418,6 +418,49 @@ fieldset.form-group label {
   color: #fff;
 }
 
+/* 首页欢迎模块：独立的模糊背景块，不与下方合并 */
+.welcome-module.welcome-blur-bg {
+  background: transparent; /* 让伪元素作为背景显示 */
+  position: relative;
+  overflow: hidden; /* 裁剪伪元素到当前块范围内 */
+  border-radius: var(--radius-md); /* 独立视觉，不与下方视觉融合 */
+  color: #fff; /* 文本采用高对比度颜色 */
+}
+
+.welcome-module.welcome-blur-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('../image/background.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(6px) brightness(0.55) contrast(1.2); /* 提升背景对比度与暗化 */
+  transform: scale(1.03); /* 适度放大抵消边缘模糊 */
+  z-index: 0; /* 在内容下，但高于页面背景 */
+}
+
+/* 轻度遮罩：提高文字与按钮的可读性 */
+.welcome-module.welcome-blur-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 0;
+}
+
+.welcome-module.welcome-blur-bg > * {
+  position: relative;
+  z-index: 1; /* 确保文本与按钮位于伪元素上方 */
+}
+
+/* 文本显著提升可读性 */
+.welcome-module.welcome-blur-bg h2,
+.welcome-module.welcome-blur-bg p {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
 .gallery-grid {
   max-width: 100%; /* 画廊占比更大 */
   margin: 0 auto 2rem;
