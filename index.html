@@ -202,4 +202,18 @@
       </footer>
     </div>
   </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const trigger = document.querySelector('#hero-fullscreen .scroll-down a');
+      const target = document.getElementById('main-content-anchor');
+      const header = document.querySelector('header');
+      if (!trigger || !target) return;
+      trigger.addEventListener('click', function (evt) {
+        evt.preventDefault();
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetY = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: targetY, behavior: 'smooth' });
+      });
+    });
+  </script>
 </html>
