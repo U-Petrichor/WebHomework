@@ -330,11 +330,12 @@ fieldset.form-group label {
 
 /* ---- 首页：欢迎模块与两列阶梯式画廊 ---- */
 .welcome-module {
-  max-width: 1000px;
-  margin: 0 auto 1rem;
-  padding: 1.25rem 1.25rem 1rem;
+  width: 100%; /* 水平拉满 */
+  max-width: none;
+  margin: 0 0 1rem; /* 垂直间距保持 */
+  padding: 1.25rem 1.25rem 1rem; /* 纵向数值不变 */
   background: #fff;
-  border-radius: var(--radius-md);
+  border-radius: 0; /* 全宽时边角与页面齐平，更协调 */
   box-shadow: var(--shadow-sm);
 }
 
@@ -387,11 +388,11 @@ fieldset.form-group label {
 }
 
 .gallery-grid {
-  max-width: 1200px;
+  max-width: 100%; /* 画廊占比更大 */
   margin: 0 auto 2rem;
   padding: 0 1rem;
   display: flex; /* 两列：Flexbox */
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: flex-start;
 }
 
@@ -415,9 +416,10 @@ fieldset.form-group label {
 
 .gallery-item img {
   width: 100%;
+  height: auto;           /* 保持原始宽高比例 */
   display: block;
-  object-fit: cover;
-  aspect-ratio: var(--ratio, 4 / 3);
+  object-fit: contain;    /* 不裁剪、完整显示 */
+  background: #fafafa;    /* 可能出现留白时更协调 */
   border-bottom: 1px solid #eee;
 }
 
@@ -432,12 +434,70 @@ fieldset.form-group label {
 }
 
 /* 不同纵横比：形成错落感 */
-.ratio-16x9 { --ratio: 16/9; }
-.ratio-4x3  { --ratio: 4/3; }
-.ratio-3x4  { --ratio: 3/4; }
-.ratio-1x1  { --ratio: 1/1; }
+/* 保留占位类，当前不强制设置固定纵横比 */
+/* .ratio-16x9 / .ratio-4x3 / .ratio-3x4 / .ratio-1x1 */
 
 @media (max-width: 768px) {
   .welcome-features { grid-template-columns: 1fr; }
   .gallery-grid { flex-direction: column; }
+}
+
+/* ---- 攻略中心：交错的图片 + 文案行布局 ---- */
+.hub-alt {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.guide-item {
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1rem;
+  align-items: stretch;
+}
+
+.guide-item.reverse { flex-direction: row-reverse; }
+
+.guide-item .media { flex: 1.25; }
+.guide-item .content { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.guide-item .content h3 {
+  font-family: var(--font-title);
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.guide-item .content p { margin: 0 0 0.75rem; color: #444; }
+.guide-item .actions { display: flex; gap: 0.5rem; }
+
+.guide-item .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* 保持协调的卡片高度 */
+  aspect-ratio: 16 / 10;     /* 统一比例以形成整齐排布 */
+  border-radius: var(--radius-md);
+}
+
+.guide-item.contribute { border: 2px dashed var(--primary-color); background: rgba(255, 255, 255, 0.95); }
+.guide-item.contribute .media .placeholder {
+  border: 2px dashed var(--primary-color);
+  border-radius: var(--radius-md);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-color);
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .guide-item { flex-direction: column; }
+  .guide-item.reverse { flex-direction: column; }
+  .guide-item .media img { aspect-ratio: auto; }
 }
