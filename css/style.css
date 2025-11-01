@@ -41,6 +41,37 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* 其他页面：模糊背景（使用 ../image/background.jpg） */
+body.bg-blur { position: relative; background-color: transparent; }
+body.bg-blur::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url('../image/background.jpg');
+  background-position: center;
+  background-size: cover; /* 等比例填充，溢出裁剪 */
+  background-repeat: no-repeat;
+  filter: blur(6px);
+  transform: scale(1.03); /* 适度放大，抵消边缘模糊 */
+  opacity: 0.9;
+}
+
+/* 让页面主要结构位于模糊层之上 */
+.bg-blur header,
+.bg-blur main,
+.bg-blur footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* 首页英雄区在模糊背景之上 */
+.bg-blur #hero-fullscreen {
+  position: relative;
+  z-index: 1;
+}
+
 /* 5) 共享的导航栏样式（header & nav） */
 header,
 nav {
