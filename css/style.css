@@ -84,6 +84,21 @@ nav {
   padding: 0.75rem 1rem;
 }
 
+/* 固定在视口顶部（随滚动始终可见） */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* 高于页面内容与模糊背景 */
+  width: 100%;
+}
+
+/* 在 bg-blur 页面中也保持顶部粘性，覆盖早前的 relative 设置 */
+.bg-blur header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 nav ul {
   display: flex;
   gap: 1rem;
