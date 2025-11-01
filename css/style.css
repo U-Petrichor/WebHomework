@@ -29,6 +29,7 @@ body {
   --transition-fast: 200ms ease;
   --shadow-sm: 0 8px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.25);
+  --arrow-edge-gap: 16px; /* 轮播左右箭头距页面边缘的间距 */
 }
 
 /* 4) 全局 body 样式 */
@@ -208,6 +209,158 @@ footer {
   margin: 0 auto;
   padding: 1rem;
 }
+
+/* 攻略中心：3D 轮播样式 */
+.guides-carousel {
+  position: relative;
+  padding: 1rem 0;
+  --cta-height: 88px; /* 底部按钮预留高度 */
+  padding-bottom: calc(var(--cta-height) + 0.5rem);
+}
+
+/* 新增视口容器：仅在此处启用 3D 透视，避免影响 fixed 箭头 */
+.carousel-viewport {
+  position: relative;
+  perspective: 1000px; /* 3D 深度 */
+}
+
+.carousel-track {
+  position: relative;
+  height: calc(100vh - var(--cta-height) - 120px); /* 基本接近全屏，考虑导航与内边距 */
+}
+
+.carousel-slide {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(1500px, 90vw);
+  height: auto;
+  aspect-ratio: 16 / 9; /* 默认16:9比例 */
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: stretch;
+  will-change: transform, opacity, filter;
+  transition: transform 500ms ease, opacity 500ms ease, filter 500ms ease, box-shadow 500ms ease;
+}
+
+.carousel-slide .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.carousel-slide .content { padding: 1rem; display: flex; flex-direction: column; justify-content: center; }
+.carousel-slide .content h3 { font-family: var(--font-title); margin: 0 0 0.5rem; font-size: 1.8rem; }
+.carousel-slide .content p { margin: 0 0 0.75rem; color: #444; }
+.carousel-slide .actions { display: flex; gap: 0.5rem; }
+
+/* 状态：居中主项 / 左右侧翼（缩小 + 模糊） */
+.slide--active {
+  transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+  opacity: 1;
+  z-index: 3;
+  filter: none;
+}
+
+.slide--prev {
+  transform: translateX(calc(-50% - 260px)) translateY(-50%) translateZ(-200px) rotateY(12deg) scale(0.86);
+  opacity: 0.6;
+  z-index: 2;
+  filter: blur(2px) saturate(0.9);
+}
+
+.slide--next {
+  transform: translateX(calc(-50% + 260px)) translateY(-50%) translateZ(-200px) rotateY(-12deg) scale(0.86);
+  opacity: 0.6;
+  z-index: 2;
+  filter: blur(2px) saturate(0.9);
+}
+
+.slide--hidden {
+  transform: translateX(-50%) translateY(-50%) translateZ(-420px) scale(0.75);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 箭头控件 */
+.carousel-arrow {
+  position: fixed; /* 相对视口定位，贴近页面边缘 */
+  top: 50%;
+  font-size: 15rem; /* 保持大字号 */
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  display: block;
+  cursor: pointer;
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+  z-index: 1001; /* 高于内容与header */
+  transform: translateY(-50%);
+}
+
+.carousel-arrow.left { left: var(--arrow-edge-gap); }
+.carousel-arrow.right { right: var(--arrow-edge-gap); }
+.carousel-arrow:hover { transform: translateY(-50%) scale(1.06); opacity: 0.95; }
+
+@media (max-width: 900px) {
+  .carousel-track { height: calc(100vh - var(--cta-height) - 100px); }
+  .carousel-slide { grid-template-columns: 1fr; }
+  .slide--prev { transform: translateX(calc(-50% - 160px)) translateZ(-180px) rotateY(10deg) scale(0.85); }
+  .slide--next { transform: translateX(calc(-50% + 160px)) translateZ(-180px) rotateY(-10deg) scale(0.85); }
+  .carousel-arrow { font-size: 3rem; }
+  :root { --arrow-edge-gap: 12px; } /* 移动端默认稍微缩小边距 */
+}
+
+/* 底部统一CTA区域 */
+.carousel-cta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 1;
+  display: grid;
+  place-items: center;
+  padding: 0.5rem 1rem;
+  z-index: 5;
+}
+
+.cta-btn {
+  font-size: 1.125rem;
+  padding: 1rem 2.75rem; /* 更长的按钮 */
+  min-width: clamp(280px, 50vw, 700px);
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  background: rgba(16, 24, 44, 0.45); /* 贴近背景的半透明深色 */
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+  transform-origin: 50% 50%;
+  animation: cta-shake 3s ease-in-out infinite; /* 每3秒高频旋转震动 */
+}
+
+.cta-btn:hover {
+  animation-play-state: paused; /* 悬停时停止晃动 */
+  border-color: rgba(255, 255, 255, 0.8); /* 框颜色加深 */
+  background: rgba(16, 24, 44, 0.6);
+}
+
+@keyframes cta-shake {
+  0%, 76% { transform: none; }
+  80% { transform: rotate(2.2deg); }
+  82% { transform: rotate(-2.2deg); }
+  84% { transform: rotate(1.8deg); }
+  86% { transform: rotate(-1.8deg); }
+  88% { transform: rotate(1.5deg); }
+  90% { transform: rotate(-1.5deg); }
+  92% { transform: rotate(1.2deg); }
+  94% { transform: rotate(-1.2deg); }
+  96% { transform: rotate(0.8deg); }
+  98% { transform: rotate(-0.8deg); }
+  100% { transform: none; }
+}
+
+/* 隐藏卡片内部旧的按钮区域，保留底部唯一CTA */
+.carousel-slide .actions { display: none; }
 
 .cards-grid {
   display: grid;
@@ -438,6 +591,19 @@ fieldset.form-group label {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: #fff;
+}
+
+/* 底部CTA覆盖默认按钮配色（半透明，贴近背景） */
+.guides-carousel .carousel-cta .btn.primary.cta-btn {
+  background: rgba(16, 24, 44, 0.45);
+  border-color: rgba(255, 255, 255, 0.55);
+  color: #fff;
+  backdrop-filter: blur(2px) saturate(1.05);
+}
+
+.guides-carousel .carousel-cta .btn.primary.cta-btn:hover {
+  background: rgba(16, 24, 44, 0.6);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* 首页欢迎模块：独立的模糊背景块，不与下方合并 */

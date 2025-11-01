@@ -15,81 +15,80 @@
       <nav>
         <ul>
           <li><a href="../index.html">首页</a></li>
-          <li><a href="guides-hub.html">攻略路线</a></li>
+          <li><a href="guides-hub.html">攻略</a></li>
           <li><a href="contact.html">反馈</a></li>
         </ul>
       </nav>
     </header>
 
-    <!-- 主容器：交错布局（图片 + 文案） -->
-    <main class="hub-container hub-alt">
-      <!-- 行 A：中国（左图右文） -->
-      <section class="guide-item">
-        <div class="media">
-          <a href="guide-china.html" aria-label="中国10日游玩攻略">
-            <img src="../images/greatwall.jpg" alt="中国 · 长城" loading="lazy" decoding="async" />
-          </a>
-        </div>
-        <div class="content">
-          <h3>中国10日游玩攻略</h3>
-          <p>
-            以北京与华北为核心，串联地标古迹与城市生活节奏。包含每日交通提示、餐饮建议与适合拍照的景点推荐。
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="guide-china.html">查看攻略</a>
-          </div>
-        </div>
-      </section>
+    <!-- 主容器：3D 轮播（居中主攻略，侧翼模糊缩小） -->
+    <main class="hub-container">
+      <section class="guides-carousel" aria-label="攻略轮播">
+        <button class="carousel-arrow left" aria-label="上一条攻略">‹</button>
+        <button class="carousel-arrow right" aria-label="下一条攻略">›</button>
 
-      <!-- 行 B：日本（右图左文） -->
-      <section class="guide-item reverse">
-        <div class="media">
-          <a href="guide-japan.html" aria-label="日本7日经典路线">
-            <img src="../images/japan-kyoto.jpg" alt="日本 · 京都街景" loading="lazy" decoding="async" />
-          </a>
-        </div>
-        <div class="content">
-          <h3>日本7日经典路线</h3>
-          <p>
-            结合东京与京都的城市与人文体验，安排寺社参访、城市购物与地铁交通攻略，适合首次到访日本的旅行者。
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="guide-japan.html">查看攻略</a>
-          </div>
-        </div>
-      </section>
+        <!-- 视口容器：承载3D视差，避免影响箭头的 fixed 定位 -->
+        <div class="carousel-viewport">
+        <div class="carousel-track">
+          <!-- Slide 1：中国10日 -->
+          <article class="carousel-slide slide--active" data-link="guide-china.html" data-type="guide">
+            <div class="media">
+              <img src="../image/gallery-photo-1.jpg" alt="中国10日攻略" loading="lazy" decoding="async" />
+            </div>
+            <div class="content">
+              <h3>中国10日游玩攻略</h3>
+              <p>以北京与华北为核心，串联地标古迹与城市生活节奏。包含每日交通提示、餐饮建议与适合拍照的景点推荐。</p>
+              <div class="actions">
+                <a class="btn primary" href="guide-china.html">查看攻略</a>
+              </div>
+            </div>
+          </article>
 
-      <!-- 行 C：法国（左图右文） -->
-      <section class="guide-item">
-        <div class="media">
-          <a href="guide-france.html" aria-label="法国南部5日游">
-            <img src="../images/france-paris.jpg" alt="法国 · 巴黎" loading="lazy" decoding="async" />
-          </a>
-        </div>
-        <div class="content">
-          <h3>法国南部5日游</h3>
-          <p>
-            探访普罗旺斯与蔚蓝海岸的自然与艺术气息，提供自驾与公共交通两套路线建议，含必试餐酒与博物馆清单。
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="guide-france.html">查看攻略</a>
-          </div>
-        </div>
-      </section>
+          <!-- Slide 2：日本7日 -->
+          <article class="carousel-slide slide--next" data-link="#" data-type="guide">
+            <div class="media">
+              <img src="../image/gallery-photo-2.jpg" alt="日本7日经典路线" loading="lazy" decoding="async" />
+            </div>
+            <div class="content">
+              <h3>日本7日经典路线</h3>
+              <p>结合东京与京都的人文体验，安排寺社参访、城市购物与地铁交通攻略，适合首次到访日本的旅行者。</p>
+              <div class="actions">
+                <a class="btn" href="contact.html">敬请期待</a>
+              </div>
+            </div>
+          </article>
 
-      <!-- 行 D：投稿（右图左文，图片位使用占位样式） -->
-      <section class="guide-item reverse contribute">
-        <div class="media">
-          <div class="placeholder">投稿你的攻略</div>
+          <!-- Slide 3：法国5日 -->
+          <article class="carousel-slide slide--hidden" data-link="#" data-type="guide">
+            <div class="media">
+              <img src="../image/gallery-photo-3.jpg" alt="法国南部5日游" loading="lazy" decoding="async" />
+            </div>
+            <div class="content">
+              <h3>法国南部5日游</h3>
+              <p>探访普罗旺斯与蔚蓝海岸的自然与艺术气息，提供自驾与公共交通两套路线建议。</p>
+              <div class="actions">
+                <a class="btn" href="contact.html">敬请期待</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 4：投稿 -->
+          <article class="carousel-slide slide--prev" data-link="contact.html" data-type="contribute">
+            <div class="media">
+              <img src="../image/gallery-photo-4.jpg" alt="投稿你的攻略" loading="lazy" decoding="async" />
+            </div>
+            <div class="content">
+              <h3>我要投稿新的攻略</h3>
+              <p>如果你有值得分享的行程与目的地灵感，欢迎通过反馈页面提交，我们会进行整理与上线展示。</p>
+              <div class="actions">
+                <a class="btn" href="contact.html">去反馈页</a>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="content">
-          <h3>我要投稿新的攻略</h3>
-          <p>
-            如果你有值得分享的行程与目的地灵感，欢迎通过反馈页面提交，我们会进行整理与上线展示。
-          </p>
-          <div class="actions">
-            <a class="btn" href="contact.html">去反馈页</a>
-          </div>
+        <div class="carousel-cta">
+          <a id="carouselCta" class="btn primary cta-btn" href="pages/guide-china.html">立即游玩</a>
+        </div>
         </div>
       </section>
     </main>
@@ -98,5 +97,52 @@
     <footer>
       © 2025 王何佳、叶于琳、吾米提·加帕尔的Web开发技术基础-实操性作业3
     </footer>
+    <script>
+      // 3D 轮播交互：左右箭头与键盘切换
+      (function () {
+        const track = document.querySelector('.carousel-track');
+        if (!track) return;
+        const slides = Array.from(track.querySelectorAll('.carousel-slide'));
+        const btnPrev = document.querySelector('.carousel-arrow.left');
+        const btnNext = document.querySelector('.carousel-arrow.right');
+        const cta = document.getElementById('carouselCta');
+        let index = slides.findIndex(s => s.classList.contains('slide--active'));
+        if (index < 0) index = 0;
+
+        function applyStates() {
+          slides.forEach((s, i) => {
+            s.classList.remove('slide--active', 'slide--prev', 'slide--next', 'slide--hidden');
+            const rel = i - index;
+            if (rel === 0) s.classList.add('slide--active');
+            else if (rel === -1 || (rel < 0 && i === slides.length - 1 && index === 0)) s.classList.add('slide--prev');
+            else if (rel === 1 || (rel > 0 && i === 0 && index === slides.length - 1)) s.classList.add('slide--next');
+            else s.classList.add('slide--hidden');
+          });
+
+          // 更新底部CTA文案与链接
+          if (cta) {
+            const activeSlide = slides[index];
+            const type = activeSlide.dataset.type || 'guide';
+            const link = activeSlide.dataset.link || '#';
+            cta.textContent = type === 'contribute' ? '立即投稿' : '立即游玩';
+            cta.href = link && link !== '#' ? link : (type === 'contribute' ? 'contact.html' : '#');
+          }
+        }
+
+        function next() { index = (index + 1) % slides.length; applyStates(); }
+        function prev() { index = (index - 1 + slides.length) % slides.length; applyStates(); }
+
+        btnPrev && btnPrev.addEventListener('click', prev);
+        btnNext && btnNext.addEventListener('click', next);
+
+        // 键盘支持
+        document.addEventListener('keydown', e => {
+          if (e.key === 'ArrowLeft') prev();
+          else if (e.key === 'ArrowRight') next();
+        });
+
+        applyStates();
+      })();
+    </script>
   </body>
 </html>
