@@ -1,6 +1,6 @@
 <div align="center">
   
-![漫步者旅游攻略](image/logo.png)
+![漫步者旅游攻略](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/image/logo.png)
   
 </div>
 
@@ -75,6 +75,8 @@ npx http-server -p 3000
 php -S localhost:3000
 ```
 
+> **💡 最佳浏览效果**：为了获得最佳的视觉体验，建议将浏览器窗口大小调整为屏幕的 **90%**。这样可以确保页面元素完整显示，3D轮播效果和响应式布局都能达到最佳展示效果。
+
 ## 📖 页面说明
 
 ### 🏠 首页 (`index.html`)
@@ -87,7 +89,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![首页截图](screenshots/homepage.png)
+![首页截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/homepage.png)
   
 *首页展示 - Hero全屏首屏与景点画廊*
 
@@ -111,7 +113,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![攻略中心截图](screenshots/guides-hub.png)
+![攻略中心截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/guides-hub.png)
   
 *攻略中心 - 3D轮播效果与APP推荐*
 
@@ -136,7 +138,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![挪威攻略截图](screenshots/guide-norway.png)
+![挪威攻略截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/guide-norway.png)
   
 *挪威攻略 - 时间轴布局与交互式地图*
 
@@ -153,7 +155,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![联系反馈页面截图](screenshots/contact.png)
+![联系反馈页面截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/contact.png)
   
 *联系反馈页面 - 关于作者与反馈表单*
 
@@ -252,7 +254,6 @@ README中展示的网页截图位于 `screenshots/` 目录：
 - `guide-norway.png` - 挪威攻略时间轴布局
 - `contact.png` - 联系反馈页面
 
-> **提示**：建议使用浏览器开发者工具截图，或者使用截图工具（如Windows的Snipping Tool、Mac的截屏工具）在浏览器中完整截取页面。推荐分辨率：宽度800-1200px，保持页面完整显示。
 
 ## 🙏 致谢
 
