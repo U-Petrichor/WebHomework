@@ -1,6 +1,6 @@
 <div align="center">
   
-![漫步者旅游攻略](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/image/logo.png)
+![漫步者旅游攻略](https://github.com/U-Petrichor/WebHomework/blob/main/image/logo.png)
   
 </div>
 
@@ -89,7 +89,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![首页截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/homepage.png)
+![首页截图](https://github.com/U-Petrichor/WebHomework/blob/main/screenshots/homepage.png)
   
 *首页展示 - Hero全屏首屏与景点画廊*
 
@@ -113,7 +113,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![攻略中心截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/guides-hub.png)
+![攻略中心截图](https://github.com/U-Petrichor/WebHomework/blob/main/screenshots/guides-hub.png)
   
 *攻略中心 - 3D轮播效果与APP推荐*
 
@@ -138,7 +138,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![挪威攻略截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/guide-norway.png)
+![挪威攻略截图](https://github.com/U-Petrichor/WebHomework/blob/main/screenshots/guide-norway.png)
   
 *挪威攻略 - 时间轴布局与交互式地图*
 
@@ -155,7 +155,7 @@ php -S localhost:3000
 
 <div align="center">
   
-![联系反馈页面截图](https://cdn.jsdelivr.net/gh/U-Petrichor/WebHomework@main/screenshots/contact.png)
+![联系反馈页面截图](https://github.com/U-Petrichor/WebHomework/blob/main/screenshots/contact.png)
   
 *联系反馈页面 - 关于作者与反馈表单*
 
