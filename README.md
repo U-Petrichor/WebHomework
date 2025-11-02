@@ -1,14 +1,12 @@
 <div align="center">
-  <img src="image/logo.png" alt="漫步者旅游攻略" width="200">
+  
+![漫步者旅游攻略](image/logo.png)
+  
 </div>
 
 # 🧳 漫步者旅游攻略
 
 > 一个精美的多国旅游攻略静态网站，提供详尽的旅行路线规划、景点介绍和实用信息。
-
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/zh-CN/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
 
 ## ✨ 项目特色
 
@@ -88,8 +86,11 @@ php -S localhost:3000
   - 支持点击查看大图
 
 <div align="center">
-  <img src="screenshots/homepage.png" alt="首页截图" width="800">
-  <p><em>首页展示 - Hero全屏首屏与景点画廊</em></p>
+  
+![首页截图](screenshots/homepage.png)
+  
+*首页展示 - Hero全屏首屏与景点画廊*
+
 </div>
 
 ### 📚 攻略中心 (`pages/guides-hub.html`)
@@ -109,8 +110,11 @@ php -S localhost:3000
 - **APP推荐**：挪威攻略中包含实用APP推荐框
 
 <div align="center">
-  <img src="screenshots/guides-hub.png" alt="攻略中心截图" width="800">
-  <p><em>攻略中心 - 3D轮播效果与APP推荐</em></p>
+  
+![攻略中心截图](screenshots/guides-hub.png)
+  
+*攻略中心 - 3D轮播效果与APP推荐*
+
 </div>
 
 ### 🗺️ 挪威攻略 (`pages/guide-norway.html`)
@@ -131,8 +135,11 @@ php -S localhost:3000
   - 标题悬停颜色变化
 
 <div align="center">
-  <img src="screenshots/guide-norway.png" alt="挪威攻略截图" width="800">
-  <p><em>挪威攻略 - 时间轴布局与交互式地图</em></p>
+  
+![挪威攻略截图](screenshots/guide-norway.png)
+  
+*挪威攻略 - 时间轴布局与交互式地图*
+
 </div>
 
 ### 💬 联系反馈 (`pages/contact.html`)
@@ -145,8 +152,11 @@ php -S localhost:3000
   - 提交按钮
 
 <div align="center">
-  <img src="screenshots/contact.png" alt="联系反馈页面截图" width="800">
-  <p><em>联系反馈页面 - 关于作者与反馈表单</em></p>
+  
+![联系反馈页面截图](screenshots/contact.png)
+  
+*联系反馈页面 - 关于作者与反馈表单*
+
 </div>
 
 ## 🎨 设计亮点
