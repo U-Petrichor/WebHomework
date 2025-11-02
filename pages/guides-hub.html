@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>小3旅游攻略 - 攻略中心</title>
+    <title>漫步者旅游攻略 - 攻略中心</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" href="../image/logo.png?v=2" type="image/png" sizes="32x32" />
+    <link rel="shortcut icon" href="../image/logo.png?v=2" />
   </head>
   <body class="bg-blur">
-    <!-- 共享导航栏 -->
     <header>
       <div class="logo">
-        <a href="../index.html" title="返回首页">小3旅游攻略</a>
+        <a href="../index.html" title="返回首页">漫步者旅游攻略</a>
       </div>
       <nav>
         <ul>
@@ -21,25 +22,31 @@
       </nav>
     </header>
 
-    <!-- 主容器：3D 轮播（居中主攻略，侧翼模糊缩小） -->
+    <!-- 3D 轮播 -->
     <main class="hub-container">
       <section class="guides-carousel" aria-label="攻略轮播">
         <button class="carousel-arrow left" aria-label="上一条攻略">‹</button>
         <button class="carousel-arrow right" aria-label="下一条攻略">›</button>
 
-        <!-- 视口容器：承载3D视差，避免影响箭头的 fixed 定位 -->
+        <!-- 视口容器：承载3D视差 -->
         <div class="carousel-viewport">
         <div class="carousel-track">
-          <!-- Slide 1：中国10日 -->
-          <article class="carousel-slide slide--active" data-link="guide-china.html" data-type="guide">
+          <!-- Slide 1：挪威8日 -->
+          <article class="carousel-slide slide--active" data-link="guide-norway.html" data-type="guide">
             <div class="media">
-              <img src="../image/gallery-photo-1.jpg" alt="中国10日攻略" loading="lazy" decoding="async" />
+              <img src="../image/奥斯陆歌剧院.jpg" alt="奥斯陆歌剧院" loading="lazy" decoding="async" />
             </div>
             <div class="content">
-              <h3>中国10日游玩攻略</h3>
-              <p>以北京与华北为核心，串联地标古迹与城市生活节奏。包含每日交通提示、餐饮建议与适合拍照的景点推荐。</p>
+              <h3>挪威8日游玩攻略</h3>
+              <p>以峡湾与极光为核心，串联奥斯陆、卑尔根与特罗姆瑟的经典线路。包含交通建议、观光亮点与极光观测提示。</p>
+              <div class="app-recommendation-box">
+                <h4>实用APP推荐</h4>
+                <p>在规划挪威行程时，可以使用<strong>Google Map</strong>进行基础导航和<strong>Yr</strong>查看官方天气预报。住宿预订推荐<strong>Booking</strong>和<strong>Airbnb</strong>。</p>
+                <p>公共交通方面，<strong>Entur</strong>整合了挪威所有交通方式（火车、巴士、轮船等），是规划行程的首选。打车服务可以使用<strong>Bolt</strong>。此外，特定区域的交通应用包括挪威火车<strong>Vy</strong>、卑尔根交通<strong>Skyss</strong>以及特罗姆瑟的<strong>Troms Billett</strong>。</p>
+                <p>如果计划追逐极光，请使用<strong>Aurora</strong>或<strong>Polarlicht</strong>获取预测和警报。退税方面，可以使用<strong>Pie VAT</strong>。</p>
+              </div>
               <div class="actions">
-                <a class="btn primary" href="guide-china.html">查看攻略</a>
+                <a class="btn primary" href="guide-norway.html">查看攻略</a>
               </div>
             </div>
           </article>
@@ -87,18 +94,18 @@
           </article>
         </div>
         <div class="carousel-cta">
-          <a id="carouselCta" class="btn primary cta-btn" href="pages/guide-china.html">立即游玩</a>
+          <a id="carouselCta" class="btn primary cta-btn" href="guide-norway.html">立即游玩</a>
         </div>
         </div>
       </section>
     </main>
 
-    <!-- 页脚（共享样式） -->
+    <!-- 页脚 -->
     <footer>
       © 2025 王何佳、叶于琳、吾米提·加帕尔的Web开发技术基础-实操性作业3
     </footer>
     <script>
-      // 3D 轮播交互：左右箭头与键盘切换
+      // 3D 轮播交互
       (function () {
         const track = document.querySelector('.carousel-track');
         if (!track) return;
@@ -119,12 +126,19 @@
             else s.classList.add('slide--hidden');
           });
 
-          // 更新底部CTA文案与链接
           if (cta) {
             const activeSlide = slides[index];
             const type = activeSlide.dataset.type || 'guide';
             const link = activeSlide.dataset.link || '#';
-            cta.textContent = type === 'contribute' ? '立即投稿' : '立即游玩';
+            
+            if (type === 'contribute') {
+              cta.textContent = '立即投稿';
+            } else if (link === '#' || !link) {
+              cta.textContent = '敬请期待';
+            } else {
+              cta.textContent = '立即游玩';
+            }
+            
             cta.href = link && link !== '#' ? link : (type === 'contribute' ? 'contact.html' : '#');
           }
         }
@@ -135,7 +149,6 @@
         btnPrev && btnPrev.addEventListener('click', prev);
         btnNext && btnNext.addEventListener('click', next);
 
-        // 键盘支持
         document.addEventListener('keydown', e => {
           if (e.key === 'ArrowLeft') prev();
           else if (e.key === 'ArrowRight') next();
